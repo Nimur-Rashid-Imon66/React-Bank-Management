@@ -1,6 +1,6 @@
 # React Bank Management System
 
-## [Click Me](https://github.com/Nimur-Rashid-Imon66/React-Bank-Management) to show live demo
+## [Click Me](https://main--react-bank-management.netlify.app/) to show live demo
 
 # About It
 ```
