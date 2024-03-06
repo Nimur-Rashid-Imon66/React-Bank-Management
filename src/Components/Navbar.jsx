@@ -4,7 +4,7 @@ import WithdrawMoney from './WithdrawMoney';
 
 const Navbar = ({ toggleNavFlagArray, navFlagArray }) => {
     return (
-        <div className="flex gap-2 items-center justify-around absolute p-4 mt-2 top-0 bg-[#69899f] w-[60%]  h-[4em] rounded-xl">
+        <div className="flex gap-2 items-center justify-around absolute p-4 mt-2 top-0 bg-[#69899f] min-w-[60%]  h-[4em] rounded-xl">
             {/* <span className=" text-white">AppifyLab</span> */}
 
             {
