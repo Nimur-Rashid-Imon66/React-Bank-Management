@@ -56,7 +56,7 @@ const ShowUserInfo = () => {
                                         <span>Account Number</span>
                                         <input
                                             className=" text-black font-medium px-2 py-1 mx-5 my-2  w-[220px] text-lg rounded-lg"
-                                            placeholder="Filter by AC No"
+                                            placeholder="Filter by AC No           🔍"
                                             value={filterAc}
                                             onChange={(e) => {
                                                 setFilterAc(e.target.value);
