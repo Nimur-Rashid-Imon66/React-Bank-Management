@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { findUser, getUserData } from "./UserData.js"
 
 
 const ShowUserInfo = () => {
-    const [UserData] = useState(getUserData());
+    const [UserData, setUserData] = useState(getUserData());
+    const backupData = getUserData();
     const [ac, setAc] = useState("");
+    const [filterAc, setFilterAc] = useState("");
     const [showInfo, setShowInfo] = useState(false)
     const [user, setUser] = useState({})
     const [showTable, setShowTable] = useState(true)
@@ -24,6 +26,13 @@ const ShowUserInfo = () => {
             setUser(UserData[flag[1]])
         }
     }
+    useEffect(() => {
+        setUserData(backupData.filter((item) => {
+            console.log(backupData)
+            return item.accountNo.includes(filterAc)
+        }))
+      
+    },[filterAc])
     return (
         <div className="flex flex-col items-center  bg-black w-full  h-full  my-[120px] ">
             <div className="flex flex-col items-center">
@@ -43,7 +52,17 @@ const ShowUserInfo = () => {
                         ? <div className='text-white mt-5'>
                             <table className='my-2 py-4 text-lg '> <tbody>
                                 <tr className=" text-center px-2 text-2xl">
-                                    <th className=" text-center px-2 border">Account Number </th>
+                                    <th className=" text-center px-2 border">
+                                        <span>Account Number</span>
+                                        <input
+                                            className=" text-black font-medium px-2 py-1 mx-5 my-2  w-[220px] text-lg rounded-lg"
+                                            placeholder="Filter by AC No"
+                                            value={filterAc}
+                                            onChange={(e) => {
+                                                setFilterAc(e.target.value);
+                                            }}
+                                        />
+                                    </th>
                                     <th className=" text-center px-2 border">Name</th>
                                     <th className=" text-center px-2 border">Amount</th>
                                     <th className=" text-center px-2 border">Action </th>
